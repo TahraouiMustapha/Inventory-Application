@@ -10,8 +10,25 @@ const getAllMovies = asyncHandler(async function (req, res) {
     res.send('success')
 })
 
+const getMovieById = asyncHandler(async function(req, res) {
+    const { movieId } = req.params;
+
+    const movie = await db.getMovieById(Number(movieId))
+
+    if(!movie) {
+        console.log(" no movie found")
+        res.send("no movie found")
+        return
+    }
+    console.log(movie)    
+    // redirect to movie page
+    res.send('hi')
+})
+
+
 module.exports = {
-    getAllMovies
+    getAllMovies,
+    getMovieById
 }
 
 

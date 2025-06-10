@@ -7,7 +7,7 @@ async function getAllMovies() {
 
 async function getMovieById(movieId) {
     const { rows } = await pool.query("SELECT * FROM movies where movieId = $1", [movieId]);
-    return rows;
+    return rows[0];
 }
 
 module.exports = {

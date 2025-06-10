@@ -5,10 +5,7 @@ const moviesRouter = Router();
 const controller = require("../controllers/moviesController")
 
 moviesRouter.get("/", controller.getAllMovies );
-moviesRouter.get("/:movieId", (req, res)=> {
-    console.log(req.params.movieId)
-    res.send("movieId")
-})
+moviesRouter.get("/:movieId", controller.getMovieById)
 
 
 module.exports = moviesRouter;
