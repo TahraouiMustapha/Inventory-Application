@@ -1,9 +1,14 @@
 const express = require('express')
 const app = express()
 
+// import routers
+const moviesRouter = require('./routes/moviesRouter')
+const genresRouter = require('./routes/genresRouter')
 
+app.get("/", (req ,res)=> res.send("explore view"))
+app.use("/movies", moviesRouter);
+app.use("/genres", genresRouter)
 
-app.get("/", (req ,res)=> res.send("hi"))
 
 const PORT = process.env.PORT || 3000;
 
