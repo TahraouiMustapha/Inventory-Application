@@ -1,0 +1,11 @@
+:root {
+    --main-color: #8523e0;
+    --txt-shadow-value:2px 4px rgba(0, 0, 0, 0.3);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:monospace;
+}
