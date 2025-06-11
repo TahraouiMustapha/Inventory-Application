@@ -15,7 +15,30 @@ const getAllGenres = asyncHandler(async function (req, res){
     })    
 })
 
+const getMoviesByGenreId = asyncHandler(async function (req, res){
+    const { genreId } = req.params;
+
+    const movies = await db.getMoviesByGenreId(Number(genreId));
+    const genre = await db.getGenreById(Number(genreId));
+
+    if(!movies) {
+        res.send("No movie found")
+        return;
+    }
+
+    if(!genre) {
+        res.status(404).send("no genre found with this id")
+        return;
+    }
+
+    res.render("moviesByGenre", {
+        title: genre.name,
+        movies: movies
+    })
+})
+
 
 module.exports = {
-    getAllGenres
+    getAllGenres,
+    getMoviesByGenreId
 }

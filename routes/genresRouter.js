@@ -5,7 +5,7 @@ const genresRouter = Router();
 const controller = require('../controllers/genreController')
 
 genresRouter.get("/", controller.getAllGenres )
-genresRouter.get("/genres/:genreId", (req, res)=> { console.log(req.params.genreId); res.send("good")})
+genresRouter.get("/:genreId", controller.getMoviesByGenreId )
 
 
 module.exports = genresRouter;

@@ -15,14 +15,20 @@ async function getAllGenres() {
     return rows;
 }
 
-// async function getMoviesByGenreId(genreId) {
-//     const { rows } = await pool.query("SELECT * FROM movies WHERE genreId = $1", [genreId]);
-//     return rows;
-// }
+async function getMoviesByGenreId(genreId) {
+    const { rows } = await pool.query("SELECT * FROM movies WHERE genreId = $1", [genreId]);
+    return rows;
+}
+
+async function getGenreById(genreId) {
+    const { rows } = await pool.query("SELECT * FROM genres WHERE genreId = $1", [genreId]);
+    return rows[0];
+}
 
 module.exports = {
     getAllMovies,
     getMovieById,
     getAllGenres,
-    // getMoviesByGenreId
+    getGenreById,
+    getMoviesByGenreId
 }
