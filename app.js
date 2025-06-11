@@ -10,7 +10,11 @@ const genresRouter = require('./routes/genresRouter')
 app.set('views', path.join(__dirname, 'views'));   
 app.set('view engine', 'ejs'); 
 
-app.get("/", (req ,res)=> res.send("explore view"))
+// serve static assets
+const assetsPath = path.join(__dirname, "public");
+app.use(express.static(assetsPath));
+
+app.get("/", (req ,res)=> res.render("explore"))
 app.use("/movies", moviesRouter);
 app.use("/genres", genresRouter)
 
@@ -22,6 +26,8 @@ app.use((err, req, res, next) => {
     console.log(err)
     res.status(500).send(err)
 })
+
+
 const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, ()=> {
