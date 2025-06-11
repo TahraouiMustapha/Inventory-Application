@@ -6,8 +6,10 @@ const db = require("../db/queries");
 const getAllMovies = asyncHandler(async function (req, res) {
     const allMovies = await db.getAllMovies();
 
-    console.log(allMovies)
-    res.send('success')
+    res.render("movies", {
+        title: "Movies",
+        movies: allMovies
+    })
 })
 
 const getMovieById = asyncHandler(async function(req, res) {
