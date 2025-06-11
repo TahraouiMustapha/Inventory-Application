@@ -5,7 +5,7 @@
     <body>
         <ul>
             <% movies.forEach(movie => {%>
-            <li><%= movie.title %></li>  
+            <li><%= movie.title %>, <%=movie.movieid%> <a href="<%= `/movies/${movie.movieid}` %>">click here</a></li>  
             <%})%>      
         </ul>
         

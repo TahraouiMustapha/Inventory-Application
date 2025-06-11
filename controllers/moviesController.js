@@ -18,13 +18,12 @@ const getMovieById = asyncHandler(async function(req, res) {
     const movie = await db.getMovieById(Number(movieId))
 
     if(!movie) {
-        console.log(" no movie found")
-        res.send("no movie found")
+        res.status(404).send("Internal Error")
         return
     }
-    console.log(movie)    
-    // redirect to movie page
-    res.send('hi')
+    res.render("individualMovie", {
+        movie: movie
+    })
 })
 
 
