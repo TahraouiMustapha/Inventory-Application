@@ -1,0 +1,39 @@
+body {
+    background-color: var(--main-color);
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    min-height: 90vh;
+}
+
+.title {
+    margin-top: 32px;
+    color: white;
+    text-shadow: var(--txt-shadow-value);
+    font-size: 3em;
+    padding: 1rem;
+} 
+
+.genres-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 160px);
+    gap: 32px;
+
+    padding: 1rem;
+}
+
+.genre {
+    --pd-value: 24px;
+    padding-top: var(--pd-value);
+    padding-bottom: var(--pd-value);
+    border: 3px solid white;
+    color: white;
+    border-radius: 16px;
+    font-size: 2em;
+    text-align: center;
+}
+
+
