@@ -1,13 +1,23 @@
 <html>
     <head>
+        <link rel="stylesheet" href="global.css">
+        <link rel="stylesheet" href="header.css">
+        <link rel="stylesheet" href="movies.css">
         <title><%= title %></title>
     </head>
     <body>
-        <ul>
-            <% movies.forEach(movie => {%>
-            <li><%= movie.title %>, <%=movie.movieid%> <a href="<%= `/movies/${movie.movieid}` %>">click here</a></li>  
-            <%})%>      
-        </ul>
-        
+        <%- include('partials/header') %>
+        <div class="main">
+            <h2  class="title">All Movies</h2>
+            <div class="movies-container">
+                <% movies.forEach(movie => {%>
+                <div class="movie">
+                    <div class="img-container" style="background-image: url('<%= movie.imagesrc %>');"  >
+                    </div>
+                    <p><%=movie.title%></p>
+                </div>
+                <%})%>
+            </div>
+        </div>    
     </body>
 </html>
