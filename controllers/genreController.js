@@ -31,8 +31,10 @@ const getMoviesByGenreId = asyncHandler(async function (req, res){
         return;
     }
 
-    res.render("moviesByGenre", {
-        title: genre.name,
+    const pageTitle = genre.name[0].toUpperCase().concat(genre.name.slice(1));
+
+    res.render("movies", {
+        title: pageTitle,
         movies: movies
     })
 })
