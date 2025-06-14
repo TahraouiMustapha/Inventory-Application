@@ -1,0 +1,100 @@
+body {
+    background-color: var(--main-color);
+}
+
+.main {
+    min-height: 90vh;
+    padding: 2rem;
+
+    display: flex;
+    gap: 32px;
+    justify-content: flex-start;
+}
+
+.image-section {
+    min-width: 300px;
+}
+
+.content {
+    max-width: 800px ;
+}
+
+.image-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 32px;
+}
+
+.image-container {
+    height: 55vh;
+    width: 100%;
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.image-section button {
+    padding: 8px 16px;
+    border-radius: 12px;
+
+    border: 3px solid white;
+    color: white;
+    outline : none;
+    cursor: pointer;
+
+    background-color: var(--main-color);
+    font-weight: bold;
+    
+}
+
+.content {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    color: white;
+}
+
+.title {
+    font-size: 3em;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    margin-bottom: 16px;
+}
+
+.content > div {
+    padding: 1rem;
+}
+
+.desc-title {
+    font-size: 2em;
+    font-weight: bold;
+    margin-top: 16px;
+    margin-bottom: 8px;
+}
+
+.desc-text {
+    font-size: 1.2em;
+
+}
+
+.genres-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.genre {
+    border: 3px solid white;
+    padding: 16px 24px;
+    border-radius: 12px;
+    background-color: var(--main-color);
+
+    font-size: 1.4em;
+    cursor: pointer;
+}
+
+
