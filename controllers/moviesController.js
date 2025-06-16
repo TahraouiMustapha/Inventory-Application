@@ -21,8 +21,11 @@ const getMovieById = asyncHandler(async function(req, res) {
         res.status(404).send("Internal Error")
         return
     }
+    
+    const genre = await db.getGenreById(movie.genreid);
     res.render("individualMovie", {
-        movie: movie
+        movie: movie,
+        genreName: genre.name
     })
 })
 

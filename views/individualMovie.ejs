@@ -14,28 +14,21 @@
                 <button>Edit movie</button>
             </div>
             <div class="content">
-                <h2 class="title">title</h2>
+                <h2 class="title"><%= movie.title %></h2>
                 <div>
                     <div class="desc-title">Rating</div>
-                    <div class="desc-text">9.2</div>
+                    <div class="desc-text"><%=movie.rating%></div>
 
                     <div class="desc-title">Release Date</div>
-                    <div class="desc-text">some date</div>
+                    <div class="desc-text"><%=movie.releasedate%></div>
 
                     <div class="desc-title">Genres</div>
                     <div class="genres-container">
-                        <div class="genre">Mystery</div>
-                        <div class="genre">Mystery</div>
-                        <div class="genre">Mystery</div>
-                        <div class="genre">Mystery</div>
-                        <div class="genre">Mystery</div>
-                        <div class="genre">Mystery</div>
-                        <div class="genre">Mystery</div>
-                        <div class="genre">Mystery</div>
+                        <a class="genre" href="/genres/<%=movie.genreid%>"><%=genreName[0].toUpperCase() + genreName.slice(1)%></a>                    
                     </div>
 
                     <div class="desc-title">Summary</div>
-                    <div class="desc-text">some date</div>
+                    <div class="desc-text"><%=movie.summary%></div>
                 </div>
             </div>
         </div>        
