@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="/global.css">
+        <title><%= title %></title>
+    </head>
+    <body>
+        <%- include('partials/header')%>
+        <div class="main">
+            <h2><%= title %></h2>
+            <div class="container">
+                <form action="" method="post">
+                    <p>
+                        <label for="title">Movie title</label>
+                        <input type="text" id="title" name="movie-title">
+                    </p>
+
+                    <p>
+                        <label for="releasedate">Release Date</label>
+                        <input type="date" id="releasedate" name="movie-releasedate">
+                    </p>
+
+                    <p>
+                        <label for="rating">Rating</label>
+                        <input type="number" id="rating" name="movie-rating">
+                    </p>
+
+                    <p>
+                        <label for="summary">Summary</label>
+                        <textarea type="number" id="Summary" name="movie-Summary"
+                        rows="5" cols="33">
+                    </p>
+
+                    <button type="submit">Add Movie</button>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>
