@@ -1,14 +1,16 @@
 <html>
     <head>
         <link rel="stylesheet" href="/global.css">
+        <link rel="stylesheet" href="/header.css">
+        <link rel="stylesheet" href="/addMovie.css">
         <title><%= title %></title>
     </head>
     <body>
         <%- include('partials/header')%>
         <div class="main">
-            <h2><%= title %></h2>
+            <h2 class="title"><%= title %></h2>
             <div class="container">
-                <form action="" method="post">
+                <form action="/somwe" method="post">
                     <p>
                         <label for="title">Movie title</label>
                         <input type="text" id="title" name="movie-title">
@@ -21,13 +23,14 @@
 
                     <p>
                         <label for="rating">Rating</label>
-                        <input type="number" id="rating" name="movie-rating">
+                        <input type="number" id="rating" name="movie-rating"
+                        step="0.1" min="0" max="10">
                     </p>
 
                     <p>
                         <label for="summary">Summary</label>
-                        <textarea type="number" id="Summary" name="movie-Summary"
-                        rows="5" cols="33">
+                        <textarea  id="summary" name="movie-Summary"
+                        rows="5" cols="33"></textarea>
                     </p>
 
                     <button type="submit">Add Movie</button>
