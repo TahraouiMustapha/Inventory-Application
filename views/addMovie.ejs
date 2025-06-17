@@ -10,7 +10,8 @@
         <div class="main">
             <h2 class="title"><%= title %></h2>
             <div class="container">
-                <form action="/somwe" method="post">
+                <%- include('partials/errorsForm')%>
+                <form action="/movies/addmovie" method="post">
                     <p>
                         <label for="title">Movie title</label>
                         <input type="text" id="title" name="movie-title">
@@ -25,6 +26,15 @@
                         <label for="rating">Rating</label>
                         <input type="number" id="rating" name="movie-rating"
                         step="0.1" min="0" max="10">
+                    </p>
+
+                    <p>
+                        <label for="genre">Genre</label>
+                        <select name="movie-genreid" id="genre">
+                            <option value="1">Action</option>
+                            <option value="2">Drama</option>
+                            <option value="3">Romance</option>
+                        </select>
                     </p>
 
                     <p>
