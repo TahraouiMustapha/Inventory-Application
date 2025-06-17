@@ -25,6 +25,13 @@ async function getGenreById(genreId) {
     return rows[0];
 }
 
+async function createMovie({title, releasedate, rating, summary, genreId, imagesrc}) {
+    await pool.query(
+        "INSERT INTO movies (title, releasedate, rating, summary, genreid, imagesrc) values ($1, $2, $3, $4, $5, $6)", 
+        [title, releasedate, rating, summary, genreId, imagesrc ]
+    )
+}
+
 module.exports = {
     getAllMovies,
     getMovieById,
