@@ -7,7 +7,7 @@ body {
     padding: 2rem;
     display: flex;
     flex-direction: column;
-    gap: 32px;
+    gap: 24px;
 
     min-height: 90vh;
 }
@@ -19,14 +19,16 @@ body {
 }
 
 .container {
+    --form-width: 400px;
     flex: 1;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 
 form {
     height: 60vh;
-    width: 400px;
+    width: var(--form-width);
     display: grid;
     grid-auto-rows: repeat(6,1fr);
 }
@@ -89,7 +91,23 @@ button {
     cursor: pointer;
 }
 
+/* style for errors section */
 
+.errors-container {
+    min-width: var(--form-width);
+}
+
+.errors-container ul {  
+    font-size: 1.4em;
+    font-weight: 600;
+    color: white;
+    display: grid;
+    gap: 8px;
+}
+
+ul li::marker {
+    color : red;
+}
 
 
 
