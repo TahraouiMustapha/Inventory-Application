@@ -75,12 +75,29 @@ const getMoviesDetails = asyncHandler(async function (req,res) {
     })
 })
 
+const updateMovie = asyncHandler(async function (req, res) {
+    const { movieId } = req.params;
+    const { movieTitle, movieReleasedate, movieRating, movieGenreid, movieSummary} = req.body;
+
+    await db.updateMovie({
+        movieId: movieId, 
+        title: movieTitle, 
+        releasedate: movieReleasedate, 
+        rating : movieRating, 
+        summary: movieSummary, 
+        genreId: movieGenreid   
+   })
+
+   res.redirect(`/movies/${movieId}`);
+})
+
 
 module.exports = {
     getAllMovies,
     getMovieById, 
     createMovie,
-    getMoviesDetails
+    getMoviesDetails,
+    updateMovie
 }
 
 

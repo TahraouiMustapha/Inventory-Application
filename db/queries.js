@@ -32,11 +32,21 @@ async function createMovie({movieTitle, movieReleasedate, movieRating, movieSumm
     )
 }
 
+async function updateMovie(movieObj) {
+    await pool.query (
+        `Update movies 
+         SET title = $1, releasedate = $2, rating = $3, summary = $4, genreId = $5
+         where movieId = $6`,
+         [movieObj.title, movieObj.releasedate, movieObj.rating, movieObj.summary, movieObj.genreId, movieObj.movieId]
+    )
+}
+
 module.exports = {
     getAllMovies,
     getMovieById,
     getAllGenres,
     getGenreById,
     getMoviesByGenreId, 
-    createMovie
+    createMovie,
+    updateMovie
 }

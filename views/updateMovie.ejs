@@ -11,7 +11,7 @@
             <h2 class="title">Edit <%= movie.title%></h2>
             <div class="container">
                 <%-include("partials/errorsForm")%>
-                <form action="" method="post">
+                <form method="post">
                     <h2 class="head">Details</h2>
                     <p>
                         <label for="title">Movie title</label>
@@ -32,13 +32,10 @@
                     <p>
                         <label for="genre">Genre</label>
                         <select name="movieGenreid" id="genre">
-                            <% const genres = ['Action', 'Drama', 'Romance']%>
+                            <% const genres = [{id: 1, name: 'Action'}, { id: 2, name: 'Drama' }, { id: 3, name: 'Romance' }]%>
                             <%genres.forEach((genre, index) => {%>
-                                <%if(movie.genreid == index + 1) {%>
-                                    <option value="<%=movie.genreid%>" selected > <%=genre%> </option>
-                                <%} else {%>
-                                    <option value="<%=movie.genreid%>"><%=genre%></option>
-                                <%}})%>                                        
+                                <option value="<%=genre.id%>" <%= genre.id === movie.genreid ? 'selected': ''%>> <%=genre.name%></option> 
+                            <%})%>                                                                     
                         </select>
                     </p>
 

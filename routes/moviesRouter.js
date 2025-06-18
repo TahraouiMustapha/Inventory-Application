@@ -13,5 +13,6 @@ moviesRouter.get("/update/:movieId", controller.getMoviesDetails)
 
 
 moviesRouter.post("/addmovie", controller.createMovie)
+moviesRouter.post("/update/:movieId", controller.updateMovie)
 
 module.exports = moviesRouter;
