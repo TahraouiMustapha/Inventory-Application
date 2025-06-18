@@ -25,10 +25,10 @@ async function getGenreById(genreId) {
     return rows[0];
 }
 
-async function createMovie({title, releasedate, rating, summary, genreId, imagesrc}) {
+async function createMovie({movieTitle, movieReleasedate, movieRating, movieSummary, movieGenreid, movieImagesrc}) {
     await pool.query(
         "INSERT INTO movies (title, releasedate, rating, summary, genreid, imagesrc) values ($1, $2, $3, $4, $5, $6)", 
-        [title, releasedate, rating, summary, genreId, imagesrc ]
+        [movieTitle, movieReleasedate, movieRating, movieSummary, movieGenreid, movieImagesrc ]
     )
 }
 
@@ -37,5 +37,6 @@ module.exports = {
     getMovieById,
     getAllGenres,
     getGenreById,
-    getMoviesByGenreId
+    getMoviesByGenreId, 
+    createMovie
 }

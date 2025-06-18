@@ -3,6 +3,9 @@ const asyncHandler = require("express-async-handler")
 // import db 
 const db = require("../db/queries");
 
+// import from express validator
+const {body, validationResult} = require("express-validator");
+
 const getAllMovies = asyncHandler(async function (req, res) {
     const allMovies = await db.getAllMovies();
 
@@ -29,10 +32,41 @@ const getMovieById = asyncHandler(async function(req, res) {
     })
 })
 
+const validateMovie = [
+    body("movieTitle") 
+        .notEmpty()
+        .withMessage("Movie title is required"),
+    body("movieReleasedate")
+        .notEmpty()
+        .withMessage("Movie date is required"), 
+    body("movieRating")
+        .notEmpty().withMessage("Movie Rating is required")
+        .isFloat({min: 0, max: 10}).withMessage("Movie Rating must be between 0 and 10")
+]
+
+const createMovie = [
+    validateMovie, 
+    asyncHandler(async (req, res) => {
+        const errors = validationResult(req);
+        if(!errors.isEmpty()) {
+            console.log(errors.array())
+            return res.status(400).render("addMovie", {
+                title: "Add new movie", 
+                errors: errors.array()
+            })
+        }
+        
+        const {movieTitle, movieReleasedate, movieRating, movieSummary, movieGenreid} = req.body;
+        await db.createMovie({movieTitle, movieReleasedate, movieRating, movieSummary, movieGenreid, movieImagesrc:null});
+        res.redirect("/movies");
+    })
+]
+
 
 module.exports = {
     getAllMovies,
-    getMovieById
+    getMovieById, 
+    createMovie
 }
 
 

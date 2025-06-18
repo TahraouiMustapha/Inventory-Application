@@ -14,6 +14,9 @@ app.set('view engine', 'ejs');
 const assetsPath = path.join(__dirname, "public");
 app.use(express.static(assetsPath));
 
+// to parse form data
+app.use(express.urlencoded({ extended: true }))
+
 app.get("/", (req ,res)=> res.render("explore"))
 app.use("/movies", moviesRouter);
 app.use("/genres", genresRouter)

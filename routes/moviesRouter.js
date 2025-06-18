@@ -1,4 +1,4 @@
-const { Router } = require("express");;
+const { Router } = require("express");
 
 const moviesRouter = Router();
 // movies controller
@@ -10,5 +10,6 @@ moviesRouter.get("/addmovie", (req, res)=> res.render("addMovie", {
 }))
 moviesRouter.get("/:movieId", controller.getMovieById)
 
+moviesRouter.post("/addmovie", controller.createMovie)
 
 module.exports = moviesRouter;
