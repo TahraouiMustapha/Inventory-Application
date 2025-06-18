@@ -2,9 +2,56 @@
     <head>
         <link rel="stylesheet" href="/global.css">
         <link rel="stylesheet" href="/header.css">
+        <link rel="stylesheet" href="/addMovie.css">
         <title>Edit <%=movie.title%></title>
     </head>
     <body>
         <%- include('partials/header')%>
+        <div class="main">
+            <h2 class="title">Edit <%= movie.title%></h2>
+            <div class="container">
+                <%-include("partials/errorsForm")%>
+                <form action="" method="post">
+                    <h2 class="head">Details</h2>
+                    <p>
+                        <label for="title">Movie title</label>
+                        <input type="text" id="title" name="movieTitle" value="<%=movie.title%>">
+                    </p>
+
+                    <p>
+                        <label for="releasedate">Release Date</label>
+                        <input type="date" id="releasedate" name="movieReleasedate" value="<%=movie.releasedate.toISOString().slice(0, 10)%>">
+                    </p>
+
+                    <p>
+                        <label for="rating">Rating</label>
+                        <input type="number" id="rating" name="movieRating"
+                        step="0.1" min="0" max="10" value="<%=movie.rating%>">
+                    </p>
+
+                    <p>
+                        <label for="genre">Genre</label>
+                        <select name="movieGenreid" id="genre">
+                            <% const genres = ['Action', 'Drama', 'Romance']%>
+                            <%genres.forEach((genre, index) => {%>
+                                <%if(movie.genreid == index + 1) {%>
+                                    <option value="<%=movie.genreid%>" selected > <%=genre%> </option>
+                                <%} else {%>
+                                    <option value="<%=movie.genreid%>"><%=genre%></option>
+                                <%}})%>                                        
+                        </select>
+                    </p>
+
+                    <p>
+                        <label for="summary">Summary</label>
+                        <textarea  id="summary" name="movieSummary"
+                        rows="5" cols="33" ><%=movie.summary%></textarea>
+                    </p>
+
+                    <button type="submit">Update Details</button>
+                </form>
+
+            </div>
+        </div>
     </body>
 </html>
