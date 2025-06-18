@@ -9,6 +9,8 @@ moviesRouter.get("/addmovie", (req, res)=> res.render("addMovie", {
     title: "Add new movie"
 }))
 moviesRouter.get("/:movieId", controller.getMovieById)
+moviesRouter.get("/update/:movieId", controller.getMoviesDetails)
+
 
 moviesRouter.post("/addmovie", controller.createMovie)
 

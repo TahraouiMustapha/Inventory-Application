@@ -61,11 +61,26 @@ const createMovie = [
     })
 ]
 
+const getMoviesDetails = asyncHandler(async function (req,res) {
+    const { movieId } = req.params;
+    
+    const movie = await db.getMovieById(movieId);
+    if(!movie) {
+        res.status(404).send("Movie Not Found!");
+        return;
+    }
+
+    res.render("updateMovie", {
+        movie: movie
+    })
+})
+
 
 module.exports = {
     getAllMovies,
     getMovieById, 
-    createMovie
+    createMovie,
+    getMoviesDetails
 }
 
 
