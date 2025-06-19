@@ -10,7 +10,8 @@
         <div class="main">
             <h2 class="title">Add Genre</h2>
             <div class="container">
-                <form action="" method="post">
+                <%-include('partials/errorsForm')%>
+                <form action="/genres/addgenre" method="post">
                     <p>
                         <label for="genreName">Genre name:</label>
                         <input type="text" id="genreName" name="genreName" required>

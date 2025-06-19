@@ -32,9 +32,8 @@
                     <p>
                         <label for="genre">Genre</label>
                         <select name="movieGenreid" id="genre">
-                            <% const genres = [{id: 1, name: 'Action'}, { id: 2, name: 'Drama' }, { id: 3, name: 'Romance' }]%>
                             <%genres.forEach((genre, index) => {%>
-                                <option value="<%=genre.id%>" <%= genre.id === movie.genreid ? 'selected': ''%>> <%=genre.name%></option> 
+                                <option value="<%=genre.genreid%>" <%= genre.genreid === movie.genreid ? 'selected': ''%>> <%=genre.name[0].toUpperCase().concat(genre.name.slice(1))%></option> 
                             <%})%>                                                                     
                         </select>
                     </p>

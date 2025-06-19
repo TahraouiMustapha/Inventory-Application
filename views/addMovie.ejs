@@ -31,9 +31,9 @@
                     <p>
                         <label for="genre">Genre</label>
                         <select name="movieGenreid" id="genre">
-                            <option value="1">Action</option>
-                            <option value="2">Drama</option>
-                            <option value="3">Romance</option>
+                            <% genres.forEach(genre => {%>
+                                <option value="<%=genre.genreid%>"><%=genre.name[0].toUpperCase().concat(genre.name.slice(1))%></option>
+                            <%})%>                                
                         </select>
                     </p>
 
