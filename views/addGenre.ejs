@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="/global.css">
+        <link rel="stylesheet" href="/header.css">
+        <link rel="stylesheet" href="/addMovie.css">
+        <title>Add genre</title>
+    </head>
+    <body>
+        <%-include('partials/header')%>
+        <div class="main">
+            <h2 class="title">Add Genre</h2>
+            <div class="container">
+                <form action="" method="post">
+                    <p>
+                        <label for="genreName">Genre name:</label>
+                        <input type="text" id="genreName" name="genreName" required>
+                    </p>
+                    <button type="submit">Add Genre</button>
+                </form>
+            </div>
+        </div>
+        
+    </body>
+</html>
