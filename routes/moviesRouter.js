@@ -5,9 +5,7 @@ const moviesRouter = Router();
 const controller = require("../controllers/moviesController")
 
 moviesRouter.get("/", controller.getAllMovies );
-moviesRouter.get("/addmovie", (req, res)=> res.render("addMovie", {
-    title: "Add new movie"
-}))
+moviesRouter.get("/addmovie", controller.getMovieForm)
 moviesRouter.get("/:movieId", controller.getMovieById)
 moviesRouter.get("/update/:movieId", controller.getMoviesDetails)
 

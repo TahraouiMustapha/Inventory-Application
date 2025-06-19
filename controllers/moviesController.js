@@ -32,6 +32,15 @@ const getMovieById = asyncHandler(async function(req, res) {
     })
 })
 
+const getMovieForm = asyncHandler(async function (req, res){
+    const genres = await db.getAllGenres()
+
+    res.render("addMovie", {
+        title: "Add new movie", 
+        genres: genres
+    })
+})
+
 const validateMovie = [
     body("movieTitle") 
         .notEmpty()
@@ -65,13 +74,15 @@ const getMoviesDetails = asyncHandler(async function (req,res) {
     const { movieId } = req.params;
     
     const movie = await db.getMovieById(movieId);
+    const genres = await db.getAllGenres();
     if(!movie) {
         res.status(404).send("Movie Not Found!");
         return;
     }
 
     res.render("updateMovie", {
-        movie: movie
+        movie: movie, 
+        genres: genres
     })
 })
 
@@ -103,6 +114,7 @@ const deleteMovie = asyncHandler(async function(req, res) {
 module.exports = {
     getAllMovies,
     getMovieById, 
+    getMovieForm,
     createMovie,
     getMoviesDetails,
     updateMovie,
