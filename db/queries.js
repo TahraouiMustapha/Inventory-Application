@@ -41,6 +41,15 @@ async function updateMovie(movieObj) {
     )
 }
 
+async function deleteMovie(movieId) {
+    console.log("i ama in qeuries id:", movieId)
+    await pool.query(
+        `DELETE FROM movies
+        WHERE  movieid = $1`, 
+        [movieId]
+    )
+}
+
 module.exports = {
     getAllMovies,
     getMovieById,
@@ -48,5 +57,6 @@ module.exports = {
     getGenreById,
     getMoviesByGenreId, 
     createMovie,
-    updateMovie
+    updateMovie,
+    deleteMovie
 }
