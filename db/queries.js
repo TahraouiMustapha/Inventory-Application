@@ -42,7 +42,6 @@ async function updateMovie(movieObj) {
 }
 
 async function deleteMovie(movieId) {
-    console.log("i ama in qeuries id:", movieId)
     await pool.query(
         `DELETE FROM movies
         WHERE  movieid = $1`, 

@@ -91,13 +91,22 @@ const updateMovie = asyncHandler(async function (req, res) {
    res.redirect(`/movies/${movieId}`);
 })
 
+const deleteMovie = asyncHandler(async function(req, res) {
+    const {movieId} = req.params;
+
+    await db.deleteMovie(movieId)
+
+    res.redirect("/movies")
+})
+
 
 module.exports = {
     getAllMovies,
     getMovieById, 
     createMovie,
     getMoviesDetails,
-    updateMovie
+    updateMovie,
+    deleteMovie
 }
 
 
