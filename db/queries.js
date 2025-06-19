@@ -49,6 +49,14 @@ async function deleteMovie(movieId) {
     )
 }
 
+async function addGenre(genreName) {
+    await pool.query(
+        `INSERT INTO genres(name)
+        values($1)`,
+        [genreName] 
+    )
+}
+
 module.exports = {
     getAllMovies,
     getMovieById,
@@ -57,5 +65,6 @@ module.exports = {
     getMoviesByGenreId, 
     createMovie,
     updateMovie,
-    deleteMovie
+    deleteMovie,
+    addGenre
 }
