@@ -15,4 +15,6 @@ moviesRouter.get("/update/:movieId", controller.getMoviesDetails)
 moviesRouter.post("/addmovie", controller.createMovie)
 moviesRouter.post("/update/:movieId", controller.updateMovie)
 
+moviesRouter.post("/delete/:movieId", (req, res)=> res.send("hi"))
+
 module.exports = moviesRouter;

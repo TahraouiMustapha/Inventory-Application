@@ -36,7 +36,15 @@ body {
     background-size: cover;
 }
 
-.image-section a {
+/* for div who contains btns */
+.btns {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+}
+
+.image-section a , 
+form button{
     padding: 8px 16px;
     border-radius: 12px;
 
@@ -48,6 +56,22 @@ body {
     background-color: var(--main-color);
     font-weight: bold;
     
+    transition: background-color 0.4s ease;
+}
+
+form button {
+    background-color: white;
+    color: var(--main-color);
+}
+
+form button:hover {
+    background-color: var(--main-color);
+    color: white;
+}
+
+.image-section a:hover {
+    background-color: white;
+    color: var(--main-color);
 }
 
 .content {
