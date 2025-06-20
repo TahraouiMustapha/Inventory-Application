@@ -56,11 +56,13 @@ const validateMovie = [
 const createMovie = [
     validateMovie, 
     asyncHandler(async (req, res) => {
+        const genres = await db.getAllGenres()
         const errors = validationResult(req);
         if(!errors.isEmpty()) {
             return res.status(400).render("addMovie", {
                 title: "Add new movie", 
-                errors: errors.array()
+                errors: errors.array(),
+                genres: genres
             })
         }
         
