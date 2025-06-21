@@ -2,6 +2,9 @@ const express = require('express')
 const path = require('path');
 const app = express()
 
+// use dotenv 
+require("dotenv").config(); 
+
 // import routers
 const moviesRouter = require('./routes/moviesRouter')
 const genresRouter = require('./routes/genresRouter')

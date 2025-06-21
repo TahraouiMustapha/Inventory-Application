@@ -1,5 +1,5 @@
 #! /usr/bin/env node
-
+require("dotenv").config();
 const { Client } = require('pg')
 
 const SQL = `
@@ -41,11 +41,7 @@ const SQL = `
 async function main() {
     console.log("seeding...")
     const client = new Client({
-        host: "localhost", 
-        user: "mustapha",
-        database: "inventory_application",
-        password: "mustapha2003",
-        port: 5432 
+        connectionString: process.env.DATABASE_URL
     })
 
     await client.connect();
