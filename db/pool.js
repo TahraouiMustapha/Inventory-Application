@@ -3,5 +3,8 @@ require("dotenv").config();
 
 
 module.exports = new Pool({
-  connectionString: process.env.DATABASE_URL
+  connectionString: process.env.DATABASE_URL,
+   ssl: {
+    rejectUnauthorized: false
+  }
 })
