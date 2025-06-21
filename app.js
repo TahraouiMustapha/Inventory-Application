@@ -30,7 +30,7 @@ app.use("/genres", genresRouter)
 // error-handler middleware
 app.use((err, req, res, next) => {
     console.log(err)
-    res.status(500).send(err.msg)
+    res.status(500).send(err)
 })
 
 
